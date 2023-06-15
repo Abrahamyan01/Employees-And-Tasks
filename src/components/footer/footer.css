@@ -1,0 +1,12 @@
+.footer {
+    background-color: aqua;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+    font-size: 18px;
+    font-weight: 300;
+}

@@ -1,0 +1,23 @@
+.header {
+    background-color: aqua;
+    padding: 10px;
+}
+
+.header ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+    gap: 14vw;
+}
+
+.header ul li {
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.header ul li:hover {
+    color: aliceblue;
+    transition: color 0.3s ease-in-out;
+}
