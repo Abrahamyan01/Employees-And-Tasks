@@ -1,14 +1,14 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { IEmployee } from "../employees/types";
+import { ITask } from "../tasks/types";
 import axios from "axios";
 import "./current.css"
-import { ITask } from "../tasks/types";
 
 
 export const CurrentPage = () => {
     const [item, setItem] = useState<IEmployee>()
-    const [task, setTask] = useState<ITask[]>()    
+    const [task, setTask] = useState<ITask[]>()
     const { pathname } = useLocation()
     const id = pathname.split("/")[2];
 

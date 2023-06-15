@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
-import { IEmployee } from "./types"
 import { Employee } from "../../components/employee/Employee"
+import { Pagination } from "../../components/pagination/Pagination"
+import { IEmployee } from "./types"
 import axios from "axios"
 import "./employees.css"
-import { useActionData } from "react-router-dom"
-import { Pagination } from "../../components/pagination/Pagination"
 
 export const Employees = () => {
     const [loading, setLoading] = useState<boolean>(false)
@@ -39,7 +38,6 @@ export const Employees = () => {
             position: ""
         })
     }
-
     const deleteEmployee = async (id: number) => {
         const response = await fetch(`https://rocky-temple-83495.herokuapp.com/employees/${id}`, {
             method: "DELETE"
@@ -52,7 +50,7 @@ export const Employees = () => {
         setCurrentPage(n)
     }
     const forTo = "employees"
-    
+
     return (
         <div className="employees_page">
             <form className="form">

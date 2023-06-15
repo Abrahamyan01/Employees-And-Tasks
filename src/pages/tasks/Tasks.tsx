@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
+import { Pagination } from "../../components/pagination/Pagination"
 import { Task } from "../../components/task/Task"
 import { ISearch, ITask } from "./types"
 import axios from "axios"
 import "./tasks.css"
-import { Pagination } from "../../components/pagination/Pagination"
-
 
 export const Tasks = () => {
     const [loading, setLoading] = useState<boolean>(false)
@@ -20,7 +19,7 @@ export const Tasks = () => {
         employeeId: 0
     })
 
-    useEffect(() => {        
+    useEffect(() => {
         if (Object.values(search).length) {
             const getTasks = async () => {
                 setLoading(true)
