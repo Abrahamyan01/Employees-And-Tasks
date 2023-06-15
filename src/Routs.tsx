@@ -3,6 +3,8 @@ import App from "./App";
 import { Home } from "./pages/home/Home";
 import { Employees } from "./pages/employees/Employees";
 import { Tasks } from "./pages/tasks/Tasks";
+import { CurrentPage } from "./pages/current/CurrentPage";
+
 
 const router = createBrowserRouter([
   {
@@ -12,6 +14,7 @@ const router = createBrowserRouter([
       { path: "", element: <Home /> },
       { path: "employees", element: <Employees /> },
       { path: "tasks", element: <Tasks /> },
+      { path: "employees/:id", element: <CurrentPage /> },
     ],
   },
 ]);

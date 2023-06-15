@@ -1,4 +1,4 @@
-.employee {
+.task {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,14 +10,11 @@
     position: relative;
 }
 
-.employee img {
+.task img {
     width: 150px;
 }
 
-.employee h3 {
-    text-transform: capitalize;
-}
-.employee button {
+.delete {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -25,20 +22,15 @@
     border: none;
     background: transparent;
     font-size: 15px;
+    cursor: pointer;
 }
 
-.employee button:hover {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    color: red;
-    transition: all .3s ease-in-out;
-    border-radius: 5px;
-}
-
-.employee .update {
-    all: unset;
+.update {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 5px;
     border-radius: 5px;
     margin-top: 10px;
     cursor: pointer;
+    border: none;
+    background: transparent;
 }

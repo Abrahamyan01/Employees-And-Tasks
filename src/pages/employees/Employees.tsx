@@ -3,24 +3,30 @@ import { IEmployee } from "./types"
 import { Employee } from "../../components/employee/Employee"
 import axios from "axios"
 import "./employees.css"
+import { useActionData } from "react-router-dom"
+import { Pagination } from "../../components/pagination/Pagination"
 
 export const Employees = () => {
+    const [loading, setLoading] = useState<boolean>(false)
+    const [currentPage, setCurrentPage] = useState<number>(1)
+    const [employees, setEmployees] = useState<IEmployee[]>([])
     const [newEmployee, setNewEmployee] = useState<any>({
         name: "",
         surname: "",
         email: "",
         position: ""
     });
-    const [employees, setEmployees] = useState<IEmployee>()
 
     useEffect(() => {
         const getEmployees = async () => {
-            const response = await fetch("https://rocky-temple-83495.herokuapp.com/employees")
+            setLoading(true)
+            const response = await fetch(`https://rocky-temple-83495.herokuapp.com/employees?_page=${currentPage}&_limit=6`)
             const data = await response.json()
             setEmployees(data)
+            setLoading(false)
         }
         getEmployees()
-    }, [employees])
+    }, [employees, currentPage])
 
     const postEmployee = async (newEmployee: IEmployee) => {
         const response = await axios.post("https://rocky-temple-83495.herokuapp.com/employees", { ...newEmployee })
@@ -39,10 +45,13 @@ export const Employees = () => {
             method: "DELETE"
         })
     }
-
-    const updateEmployee = async (id:number) => {
+    const updateEmployee = async (id: number) => {
         const response = await axios.put(`https://rocky-temple-83495.herokuapp.com/employees/${id}`, { ...newEmployee })
     }
+    const paginate = (n: number) => {
+        setCurrentPage(n)
+    }
+    const forTo = "employees"
     
     return (
         <div className="employees_page">
@@ -85,10 +94,11 @@ export const Employees = () => {
                 }}>Sumbit to Add</button>
             </form>
             <div className="employees">
-                {employees?.map((e: IEmployee) => {
+                {loading ? employees?.map((e: IEmployee) => {
                     return <Employee e={e} key={e.id} deleteEmployee={deleteEmployee} updateEmployee={updateEmployee} />
-                })}
+                }) : "Loading..."}
             </div>
+            <Pagination forTo={forTo} paginate={paginate} />
         </div>
     )
 }
