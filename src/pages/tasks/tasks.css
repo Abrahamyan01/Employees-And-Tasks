@@ -33,3 +33,11 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding-left: 10px;
 }
+
+.form .select {
+    margin-left: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 5px;
+    border-radius: 5px;
+}

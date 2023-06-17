@@ -17,7 +17,8 @@
 .employee h3 {
     text-transform: capitalize;
 }
-.employee button {
+
+.employee .x {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -41,4 +42,27 @@
     border-radius: 5px;
     margin-top: 10px;
     cursor: pointer;
+}
+
+.update_part {
+    padding: 10px;
+}
+
+.update_part input {
+    all: unset;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    height: 25px;
+    width: 160px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-left: 10px;
+}
+
+.update_part .save {
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    padding: 5px 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
